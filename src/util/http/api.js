@@ -27,7 +27,7 @@ export async function getTermId() {
  * @param {string} studentUid
  */
 export async function getClassIdAndTeacherId(teacherName, studentUid) {
-  const path = `/api/term/${getTermId()}/student/${studentUid}/course/classes`
+  const path = `/api/term/${await getTermId()}/student/${studentUid}/course/classes`
   const res = await emitAjaxGet(path, headers)
   const lists = res.data
   for (const course of lists) {
