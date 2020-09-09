@@ -95,6 +95,7 @@ export function choose(courseClassId, teacherUid, teacherName, studentUid) {
   return new Promise((resolve, reject) => {
     ajax({
       path: '/api/courses/students',
+      type: "POST",
       data: {
         courseClassId,
         teacherUid,
