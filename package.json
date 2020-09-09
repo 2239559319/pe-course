@@ -5,7 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.20.0",
-    "crypto-js": "^4.0.0"
+    "crypto-js": "^4.0.0",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "webpack": "^4.44.1",
