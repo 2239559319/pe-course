@@ -66,6 +66,9 @@ function choose(courseClassId, teacherUid, teacherName, studentUid) {
       if (data.code === 200 && data.message === 'OK') {
         console.log('选课成功')
         clearInterval(timer)
+      } else {
+        console.log(`${count}次选课`)
+        count++
       }
     } catch(err) {
       console.log(err)
