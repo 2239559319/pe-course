@@ -60,16 +60,5 @@ export function getSign(path, appsecret, timestamp, data) {
   return md5(str)
 }
 
-/**
- * get authorization string
- * @return {string}
- */
-function getAuthorizationStr() {
-  return 'bearer ' + localStorage.getItem('Authorization')
-}
-
 export const app_key = getAppKey()
 export const app_secret = getAppSecret()
-export const headers = {
-  'Authorization': getAuthorizationStr()
-}

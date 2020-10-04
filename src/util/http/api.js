@@ -6,12 +6,12 @@ import {
   emitAjaxGet,
   emitAjaxPost
 } from './index'
-import { headers } from '../util'
 
 /**
+ * @param {*} headers
  * get current term id
  */
-export async function getTermId() {
+export async function getTermId(headers) {
   const path = '/api/terms'
   const res = await emitAjaxGet(path, headers)
   console.log(res.code)
@@ -25,9 +25,10 @@ export async function getTermId() {
  * get classid and teacher id
  * @param {string} teacherName 
  * @param {string} studentUid
+ * @param {*} headers
  */
-export async function getClassIdAndTeacherId(teacherName, studentUid) {
-  const path = `/api/term/${await getTermId()}/student/${studentUid}/course/classes`
+export async function getClassIdAndTeacherId(teacherName, studentUid, headers) {
+  const path = `/api/term/${await getTermId(headers)}/student/${studentUid}/course/classes`
   const res = await emitAjaxGet(path, headers)
   const lists = res.data
   for (const course of lists) {
@@ -45,8 +46,9 @@ export async function getClassIdAndTeacherId(teacherName, studentUid) {
  * @param {string} teacherUid
  * @param {string} teacherName 
  * @param {string} studentUid 
+ * @param {*} headers
  */
-export async function choose(courseClassId, teacherUid, teacherName, studentUid) {
+export async function choose(courseClassId, teacherUid, teacherName, studentUid, headers) {
   const path = '/api/courses/students'
   const data = {
     courseClassId,
@@ -59,11 +61,11 @@ export async function choose(courseClassId, teacherUid, teacherName, studentUid)
   else return false
 }
 
-export async function startTimer(teacherName, studentUid, callback) {
-  const { courseClassId, teacherUid } = await getClassIdAndTeacherId(teacherName, studentUid)
+export async function startTimer(teacherName, studentUid, callback, headers) {
+  const { courseClassId, teacherUid } = await getClassIdAndTeacherId(teacherName, studentUid, headers)
   let count = 1
   const timer = setInterval(async() => {
-    const res = await choose(courseClassId, teacherUid, teacherName, studentUid)
+    const res = await choose(courseClassId, teacherUid, teacherName, studentUid, headers)
     if (res === true) {
       callback('选课成功')
       clearInterval(timer)

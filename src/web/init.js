@@ -111,3 +111,9 @@ export function choose(courseClassId, teacherUid, teacherName, studentUid) {
     })
   })
 }
+
+export function getHeader() {
+  return {
+    'Authorization': 'bearer ' + localStorage.getItem('Authorization')
+  }
+}

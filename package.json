@@ -1,13 +1,25 @@
 {
   "name": "pe-course",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "build/web/index.js",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.20.0",
-    "crypto-js": "^4.0.0",
-    "vue": "^2.6.12"
+    "cross-env": "^7.0.2",
+    "crypto-js": "^4.0.0"
   },
+  "scripts": {
+    "build": "cross-env TARGET=web webpack --config webpack.config.js & cross-env TARGET=node webpack --config webpack.config.js"
+  },
+  "author": {
+    "email": "w2239559319@outlook.com",
+    "name": "xiaochuan",
+    "url": "https://github.com/2239559319"
+  },
+  "keywords": ["crypto", "pecourse"],
+  "files": [
+    "build"
+  ],
   "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
