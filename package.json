@@ -5,23 +5,22 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.20.0",
-    "cross-env": "^7.0.2",
     "crypto-js": "^4.0.0"
   },
   "scripts": {
-    "build": "cross-env TARGET=web webpack --config webpack.config.js & cross-env TARGET=node webpack --config webpack.config.js"
+    "build": ""
   },
   "author": {
     "email": "w2239559319@outlook.com",
     "name": "xiaochuan",
     "url": "https://github.com/2239559319"
   },
-  "keywords": ["crypto", "pecourse"],
+  "keywords": [
+    "crypto",
+    "pecourse"
+  ],
   "files": [
     "build"
   ],
-  "devDependencies": {
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
-  }
+  "devDependencies": {}
 }
