@@ -1,7 +1,8 @@
 {
   "name": "pe-course",
-  "version": "1.0.1",
-  "main": "build/web/index.js",
+  "version": "1.0.2",
+  "main": "lib/index.cjs.js",
+  "module": "lib/lindex.esm.js",
   "license": "GPL-3.0",
   "dependencies": {
     "axios": "^0.20.0",
@@ -17,7 +18,8 @@
   },
   "scripts": {
     "build:cjs": "rollup -c -f cjs -o lib/index.cjs.js",
-    "build:esm": "rollup -c -f es -o lib/index.esm.js"
+    "build:esm": "rollup -c -f es -o lib/index.esm.js",
+    "build": "yarn build:cjs && yarn build:esm"
   },
   "author": {
     "email": "w2239559319@outlook.com",
