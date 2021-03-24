@@ -8,7 +8,8 @@
     "crypto-js": "^4.0.0"
   },
   "scripts": {
-    "build": ""
+    "build:cjs": "rollup -c -f cjs -o lib/index.cjs.js",
+    "build:esm": "rollup -c -f es -o lib/index.esm.js"
   },
   "author": {
     "email": "w2239559319@outlook.com",
@@ -20,7 +21,13 @@
     "pecourse"
   ],
   "files": [
-    "build"
+    "lib"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "rollup": "^2.42.3"
+  }
 }
