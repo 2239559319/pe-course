@@ -2,10 +2,18 @@
   "name": "pe-course",
   "version": "1.0.1",
   "main": "build/web/index.js",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "axios": "^0.20.0",
     "crypto-js": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "jest": "^26.6.3",
+    "rollup": "^2.42.3"
   },
   "scripts": {
     "build:cjs": "rollup -c -f cjs -o lib/index.cjs.js",
@@ -18,16 +26,10 @@
   },
   "keywords": [
     "crypto",
-    "pecourse"
+    "pecourse",
+    "scu"
   ],
   "files": [
     "lib"
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.12",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^17.1.0",
-    "rollup": "^2.42.3"
-  }
+  ]
 }
