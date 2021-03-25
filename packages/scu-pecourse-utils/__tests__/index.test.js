@@ -1,8 +1,8 @@
 const {
   app_key,
   app_secret,
-  getSign
-} = require('./lib/index.cjs')
+  getSign,
+} = require('../lib/index.cjs.js')
 
 const getData = {
   app_key: 'eb8c68399de7483abb2d8abaea0d039f',
