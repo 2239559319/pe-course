@@ -1,25 +1,16 @@
 /**
- * get function
- */
-/**
  * get vue instance
  */
-export function getVM() {
-  return document.querySelector('.no-skin').__vue__
-}
+const vm = document.querySelector('.no-skin').__vue__
 /**
  * get ajax function
- * @return {Function}
+ * @type {Function}
  */
-export function getAjaxFn() {
-  const vm = getVM()
-  return vm.emitAjax
-}
+const ajax = vm.emitAjax
 /**
  * get current term id
  */
 export function getCurrentTermId() {
-  const vm = getVM()
   return vm.currentTerm.id
 }
 
@@ -29,7 +20,6 @@ export function getCurrentTermId() {
  * @param {string} studentUid
  */
 export function getClassIdAndTeacherIdByNet(teacherName, studentUid) {
-  const ajax = getAjaxFn()
   const path = `/api/term/${getCurrentTermId()}/student/${studentUid}/course/classes`
   return new Promise((resolve, reject) => {
     ajax({
@@ -57,7 +47,6 @@ export function getClassIdAndTeacherIdByNet(teacherName, studentUid) {
  * 这个函数必须在选课页面进行，也就是path为/selectCourse的路由
  */
 export function getClassIdAndTeacherIdByDOM(teacherName) {
-  const vm = getVM()
   if (vm.$route.name !== 'selectCourse') {
     console.log('请在选课页面操作')
   } else {
@@ -77,7 +66,6 @@ export function getClassIdAndTeacherIdByDOM(teacherName) {
  * 获取用户名和账号
  */
 export function getUser() {
-  const vm = getVM()
   return {
     name: vm.user.name,
     username: vm.user.username
@@ -91,7 +79,6 @@ export function getUser() {
  * @param {string} studentUid 
  */
 export function choose(courseClassId, teacherUid, teacherName, studentUid) {
-  const ajax = getAjaxFn()
   return new Promise((resolve, reject) => {
     ajax({
       path: '/api/courses/students',

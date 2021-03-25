@@ -1,0 +1,16 @@
+{
+  "name": "scu-pecourse-utils-dom",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "GPL-3.0",
+  "author": {
+    "email": "w2239559319@outlook.com",
+    "name": "xiaochuan",
+    "url": "https://github.com/2239559319"
+  },
+  "keywords": [
+    "crypto",
+    "pecourse",
+    "scu"
+  ]
+}
