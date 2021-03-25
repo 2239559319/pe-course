@@ -5,12 +5,13 @@ import commonjs from '@rollup/plugin-commonjs'
  * @type {import('rollup').RollupOptions}
  */
 const config = {
-  input: 'src/index.js',
   plugins: [
     commonjs(),
     babel({
       presets: [
-        '@babel/preset-env'
+        [
+          '@babel/preset-env'
+        ]
       ]
     })
   ]

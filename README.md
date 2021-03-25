@@ -2,8 +2,9 @@
 
 ------------
 
+packages
 文件夹 | 内容
 ------|------
-src/util | 源文件es6实现，由底层的加密实现
-src/web | 通过获取vue实例以及vue原型上的方法实现
-node | nodejs实现，通过底层的加密
+scu-pecourse-utils | 由底层的加密实现
+scu-pecourse-utils-console | 挂在console上使用
+scu-pecourse-utils-dom | 通过实例获取方法

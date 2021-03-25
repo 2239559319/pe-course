@@ -10,7 +10,7 @@ export {
 } from './http/index'
 export {
   getTermId,
-  choose as chooseByNet,
+  choose,
   getClassIdAndTeacherId,
   startTimer
 } from './http/api'

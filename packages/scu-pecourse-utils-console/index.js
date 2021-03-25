@@ -1,19 +1,14 @@
 /**
  * 在console中使用的代码
  */
-function getVM() {
-  return document.querySelector('.no-skin').__vue__
-}
-function getAjaxFn() {
-  const vm = getVM()
-  return vm.emitAjax
-}
+
+const vm = document.querySelector('.no-skin').__vue__
+const ajax = vm.emitAjax
+
 function getCurrentTermId() {
-  const vm = getVM()
   return vm.currentTerm.id
 }
 function getClassIdAndTeacherIdByDOM(teacherName) {
-  const vm = getVM()
   if (vm.$route.name !== 'selectCourse') {
     console.log('请在选课页面操作')
   } else {
@@ -29,14 +24,12 @@ function getClassIdAndTeacherIdByDOM(teacherName) {
   }
 }
 function getUser() {
-  const vm = getVM()
   return {
     name: vm.user.name,
-    username: vm.user.username
+    username: vm.user.username,
   }
 }
 function choose(courseClassId, teacherUid, teacherName, studentUid) {
-  const ajax = getAjaxFn()
   return new Promise((resolve, reject) => {
     ajax({
       path: '/api/courses/students',
@@ -45,14 +38,14 @@ function choose(courseClassId, teacherUid, teacherName, studentUid) {
         courseClassId,
         teacherUid,
         teacherName,
-        studentUid
+        studentUid,
       },
       success(data) {
         resolve(data)
       },
       error(err) {
         reject(err)
-      }
+      },
     })
   })
 }
@@ -60,9 +53,14 @@ function choose(courseClassId, teacherUid, teacherName, studentUid) {
   const { courseClassId, teacherUid } = getClassIdAndTeacherIdByDOM(teacherName)
   const { username } = getUser()
   let count = 1
-  const timer = setInterval(async() => {
+  const timer = setInterval(async () => {
     try {
-      const data = await choose(courseClassId, teacherUid, teacherName, username)
+      const data = await choose(
+        courseClassId,
+        teacherUid,
+        teacherName,
+        username
+      )
       if (data.code === 200 && data.message === 'OK') {
         console.log('选课成功')
         clearInterval(timer)
@@ -70,7 +68,7 @@ function choose(courseClassId, teacherUid, teacherName, studentUid) {
         console.log(`${count}次选课`)
         count++
       }
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
   }, 1000)
