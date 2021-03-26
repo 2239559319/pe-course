@@ -1,7 +1,7 @@
 /**
  * 在console中使用的代码
  */
-
+alert = console.log
 const vm = document.querySelector('.no-skin').__vue__
 const ajax = vm.emitAjax
 
