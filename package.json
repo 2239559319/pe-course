@@ -20,6 +20,7 @@
   "scripts": {
     "build": "node scripts/build.js",
     "test": "jest",
-    "format": "prettier --write packages/"
+    "format": "prettier --write packages/",
+    "publish": "yarn publish ./packages/scu-pecourse-utils --non-interactive && yarn publish ./packages/scu-pecourse-utils-dom --non-interactive"
   }
 }
