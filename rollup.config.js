@@ -7,13 +7,7 @@ import commonjs from '@rollup/plugin-commonjs'
 const config = {
   plugins: [
     commonjs(),
-    babel({
-      presets: [
-        [
-          '@babel/preset-env'
-        ]
-      ]
-    })
+    babel()
   ]
 }
 
