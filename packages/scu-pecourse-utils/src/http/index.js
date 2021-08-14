@@ -1,6 +1,6 @@
-import {app_key, app_secret, getSign, getTimestamp} from '../util'
-import http from './config'
-import qs from 'querystring'
+import { app_key, app_secret, getSign, getTimestamp } from '../util';
+import http from './config';
+import qs from 'querystring';
 
 /**
  * get
@@ -12,12 +12,12 @@ export async function emitAjaxGet(path, authorHeaders) {
     app_key,
     timestamp: getTimestamp(),
     sign: getSign(path, app_secret, getTimestamp()),
-  }
+  };
   const res = await http.get(path, {
     params: queryString,
     headers: authorHeaders,
-  })
-  return await res.data
+  });
+  return await res.data;
 }
 /**
  * post
@@ -31,9 +31,9 @@ export async function emitAjaxPost(path, data, authorHeaders) {
     timestamp: getTimestamp(),
     sign: getSign(path, app_secret, getTimestamp(), data),
     ...data,
-  }
+  };
   const res = await http.post(path, qs.stringify(queryString), {
-    headers: authorHeaders
-  })
-  return await res.data
+    headers: authorHeaders,
+  });
+  return await res.data;
 }
