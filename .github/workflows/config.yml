@@ -18,14 +18,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: publish # will run `yarn install` command
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: yarn install
+      - run: yarn run build
+      - run: yarn run publish
